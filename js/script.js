@@ -4,16 +4,38 @@ let flagNames = allCountriesString.split(" ")
 
 
 images = document.querySelectorAll("img");
+
 let randomIndexArray = [];
+let uniqueIndexesInArrayWithFourValuesArray = [];
+let indexOfCorrectFlag = undefined;
+function generateCorrectFlag() {
+    indexOfCorrectFlag = Math.floor((Math.random() * 193 + 1));
+    randomIndexArray.push(indexOfCorrectFlag);
+}
 function generateUniqueRandomIndex() {
-    let randomIndex = Math.floor((Math.random() * 5 + 1));
+    let randomIndex = Math.floor((Math.random() * 193 + 1));
     while (randomIndexArray.includes(randomIndex)) {
-        randomIndex = Math.floor((Math.random() * 5 + 1));
+        randomIndex = Math.floor((Math.random() * 193 + 1));
     }
     randomIndexArray.push(randomIndex);
+}
+
+function getIndexForFlag() {
+    let randomIndex = Math.floor((Math.random() * 4));
+    while (uniqueIndexesInArrayWithFourValuesArray.includes(randomIndex)) {
+        randomIndex = Math.floor((Math.random() * 4));
+    }
+    uniqueIndexesInArrayWithFourValuesArray.push(randomIndex)
     return randomIndex;
 }
+
+//Logic for generating flags
+generateCorrectFlag()
+for (let i = 0; i < 3; i++) {
+   generateUniqueRandomIndex();
+}
+
 images.forEach(image => {
-    let indexChosen = generateUniqueRandomIndex();
-    image.src = "./resources/images/128x128/" + flagNames[indexChosen] + ".png";
+    let indexChosen = getIndexForFlag()
+    image.src = "./resources/images/128x128/" + flagNames[randomIndexArray[indexChosen]] + ".png";
 });
