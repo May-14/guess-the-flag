@@ -5,11 +5,15 @@ let flagNames = allCountriesString.split(" ")
 
 images = document.querySelectorAll("img");
 let randomIndexArray = [];
-images.forEach(image => {
-    let randomIndex = Math.floor((Math.random() * 5 + 1))
+function generateUniqueRandomIndex() {
+    let randomIndex = Math.floor((Math.random() * 5 + 1));
     while (randomIndexArray.includes(randomIndex)) {
-        randomIndex = Math.floor((Math.random() * 5 + 1))
+        randomIndex = Math.floor((Math.random() * 5 + 1));
     }
-    randomIndexArray.push(randomIndex)
-    image.src = "./resources/images/128x128/" + flagNames[randomIndex] + ".png";
+    randomIndexArray.push(randomIndex);
+    return randomIndex;
+}
+images.forEach(image => {
+    let indexChosen = generateUniqueRandomIndex();
+    image.src = "./resources/images/128x128/" + flagNames[indexChosen] + ".png";
 });
