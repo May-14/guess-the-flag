@@ -39,3 +39,8 @@ images.forEach(image => {
     let indexChosen = getIndexForFlag()
     image.src = "./resources/images/128x128/" + flagNames[randomIndexArray[indexChosen]] + ".png";
 });
+
+const h2 = document.createElement("h2");
+const body = document.querySelector("body")
+h2.textContent = `Choose the flag of ${flagNames[indexOfCorrectFlag]}`;
+body.appendChild(h2)
