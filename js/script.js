@@ -116,7 +116,6 @@ images.forEach((image, index) => {
 });
 
 
-const h2 = document.createElement("h2");
+const h2 = document.querySelector("h2");
 const body = document.querySelector("body")
 h2.textContent = `Choose the flag of ${flagNamesObject[flagNames[randomIndexArray[indexOfCorrectFlag]]]}`;
-body.appendChild(h2)
