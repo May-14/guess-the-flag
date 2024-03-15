@@ -1,4 +1,35 @@
+* {
+    box-sizing: content-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
 nav {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 60px 20px 20px;
+    border-bottom: 1px solid gray;
+    align-items: center;
+}
+
+
+ul {
+    display: flex;
+    gap: 20px;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+    display: inline;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 0;
 }
