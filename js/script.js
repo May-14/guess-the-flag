@@ -89,14 +89,9 @@ const countriesNamesObject = {
     vn: "Viet Nam", ye: "Yemen", zm: "Zambia", zw: "Zimbabwe"
 };
 
-
-
 let territoriesNamesArray = Object.keys(territoriesNamesObject);
 
 const countriesNamesArray = Object.keys(countriesNamesObject);
-
-console.log(countriesNamesArray.length)
-console.log(territoriesNamesArray.length)
 
 let flagNamesObject = countriesNamesObject;
 let flagNames = countriesNamesArray;
