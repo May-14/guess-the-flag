@@ -1,6 +1,8 @@
 const image = document.querySelector("img");
 const highScore = document.querySelector("#highScore");
-const userScore = document.querySelector("#userScore");
+const userCurrentScore = document.querySelector("#userScore");
+let userCurrentScoreNumber = 0;
+let highScoreNumber = 0;
 let flagNames = [
     "af", "al", "dz", "ad", "ao", "ag", "ar", "am", "au", "at", "az", "bs", "bh", "bd", "bb", "by", "be", "bz", "bj", "bt",
     "bo", "ba", "bw", "br", "bn", "bg", "bf", "bi", "kh", "cm", "ca", "cv", "cf", "td", "cl", "cn", "co", "km", "cg", "cd",
@@ -92,10 +94,24 @@ images.forEach((image, index) => {
     image.alt = `Flag of ${[flagNamesObject[flagNames[randomIndexArray[index]]]]}`
     image.addEventListener("click", () => {
         if (image.alt.includes(flagNamesObject[flagNames[randomIndexArray[indexOfCorrectFlag]]])) {
-            alert("Correct")
+            userCurrentScoreNumber += 1;
+            userCurrentScore.textContent = "Score: " + userCurrentScoreNumber
+            if (userCurrentScoreNumber > highScoreNumber) {
+                highScoreNumber += 1;
+                highScore.textContent = "High Score: " + highScoreNumber
+            }
         } else {
-            alert("Incorrect")
+            userCurrentScoreNumber = 0;
+            userCurrentScore.textContent = "Score: " + userCurrentScoreNumber
         }
+        randomIndexArray = [];
+        generateIndexOfCorrectFlag()
+        images.forEach((image, index) => {
+            generateUniqueRandomIndex()
+            image.src = "./resources/images/128x128/" + flagNames[randomIndexArray[index]] + ".png";
+            image.alt = `Flag of ${[flagNamesObject[flagNames[randomIndexArray[index]]]]}`
+        })
+        h2.textContent = `Choose the flag of ${flagNamesObject[flagNames[randomIndexArray[indexOfCorrectFlag]]]}`;
     })
 });
 
