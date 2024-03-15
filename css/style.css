@@ -19,6 +19,7 @@ nav {
 
 h2 {
     text-align: center;
+    font-size: 50px;
 }
 
 div {
@@ -30,9 +31,10 @@ div {
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    height: 350px;
-    margin: 0 auto;
+    height: 450px;
     width: 700px;
+    align-content: space-evenly;
+    justify-content: space-evenly;
 }
 ul {
     display: flex;
@@ -42,7 +44,7 @@ ul {
     padding: 0;
 }
 
-li{
+nav li{
     list-style: none;
     display: inline;
 }
@@ -77,4 +79,27 @@ img {
 
 .hidden {
     display: none;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.scores {
+    flex-direction: column;
+    height: fit-content;
+}
+
+.other-games {
+    flex-direction: column;
+    height: fit-content;
+}
+
+.other-games li {
+    list-style: none;
+}
+
+.other-games ul {
+    display: block;
 }
