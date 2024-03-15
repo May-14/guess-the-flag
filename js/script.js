@@ -146,3 +146,11 @@ images.forEach((image, index) => {
 const h2 = document.querySelector("h2");
 const body = document.querySelector("body")
 h2.textContent = `Choose the flag of ${flagNamesObject[flagNames[randomIndexArray[indexOfCorrectFlag]]]}`;
+
+const settingsMenu = document.querySelector(".settings");
+const settingsButton = document.querySelector(".settings-button")
+settingsButton.addEventListener("click", () => {
+    settingsMenu.classList.toggle("hidden")
+})
+
+settingsButton.addEventListener('mousedown', function(e){ e.preventDefault(); }, false);

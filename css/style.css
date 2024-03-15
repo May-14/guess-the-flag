@@ -58,3 +58,23 @@ img {
     box-shadow: 0 0 1px black;
     height: auto;
 }
+
+.nav-right {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.settings {
+    position: absolute;
+    height: 100px;
+    margin-top: 25px;
+    background-color: aliceblue;
+}
+
+.settings-button:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
