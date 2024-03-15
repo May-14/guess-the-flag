@@ -44,7 +44,7 @@ let flagNamesObject = {
     mv: "Maldives", ml: "Mali", mt: "Malta", mh: "Marshall Islands",
     mr: "Mauritania", mu: "Mauritius", mx: "Mexico",
     fm: "Micronesia", ma: "Morocco",
-    md: "Moldova, Republic of", mc: "Monaco", mn: "Mongolia",
+    md: "Moldova", mc: "Monaco", mn: "Mongolia",
     me: "Montenegro", mz: "Mozambique", mm: "Myanmar", na: "Namibia",
     nr: "Nauru", np: "Nepal", nl: "Netherlands", nz: "New Zealand",
     ni: "Nicaragua", ne: "Niger", ng: "Nigeria", no: "Norway", om: "Oman",
