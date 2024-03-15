@@ -1,4 +1,6 @@
-image = document.querySelector("img");
+const image = document.querySelector("img");
+const highScore = document.querySelector("#highScore");
+const userScore = document.querySelector("#userScore");
 let flagNames = [
     "af", "al", "dz", "ad", "ao", "ag", "ar", "am", "au", "at", "az", "bs", "bh", "bd", "bb", "by", "be", "bz", "bj", "bt",
     "bo", "ba", "bw", "br", "bn", "bg", "bf", "bi", "kh", "cm", "ca", "cv", "cf", "td", "cl", "cn", "co", "km", "cg", "cd",
@@ -83,19 +85,18 @@ function generateIndexOfCorrectFlag() {
     indexOfCorrectFlag = Math.floor(Math.random() * 4)
 }
 
-
-//Logic for generating flags
 generateIndexOfCorrectFlag()
-
-
-
 images.forEach((image, index) => {
     generateUniqueRandomIndex()
     image.src = "./resources/images/128x128/" + flagNames[randomIndexArray[index]] + ".png";
-    console.log(index)
-    console.log(randomIndexArray)
-    console.log(randomIndexArray[index])
-    console.log(flagNames[randomIndexArray[index]])
+    image.alt = `Flag of ${[flagNamesObject[flagNames[randomIndexArray[index]]]]}`
+    image.addEventListener("click", () => {
+        if (image.alt.includes(flagNamesObject[flagNames[randomIndexArray[indexOfCorrectFlag]]])) {
+            alert("Correct")
+        } else {
+            alert("Incorrect")
+        }
+    })
 });
 
 
