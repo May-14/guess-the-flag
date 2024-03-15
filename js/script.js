@@ -9,9 +9,9 @@ let randomIndexArray = [];
 let indexOfCorrectFlag = undefined;
 let loopIteration = 0
 function generateUniqueRandomIndex() {
-    let randomIndex = Math.floor((Math.random() * 194));
+    let randomIndex = Math.floor((Math.random() * 193));
     while (randomIndexArray.includes(randomIndex)) {
-        randomIndex = Math.floor((Math.random() * 194));
+        randomIndex = Math.floor((Math.random() * 193));
     }
     randomIndexArray.push(randomIndex);
 }
@@ -24,10 +24,15 @@ function generateIndexOfCorrectFlag() {
 //Logic for generating flags
 generateIndexOfCorrectFlag()
 
+
+
 images.forEach((image, index) => {
     generateUniqueRandomIndex()
     image.src = "./resources/images/128x128/" + flagNames[randomIndexArray[index]] + ".png";
+    console.log(index)
     console.log(randomIndexArray)
+    console.log(randomIndexArray[index])
+    console.log(flagNames[randomIndexArray[index]])
 });
 
 
