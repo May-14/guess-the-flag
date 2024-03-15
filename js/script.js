@@ -6,41 +6,32 @@ let flagNames = allCountriesString.split(" ")
 images = document.querySelectorAll("img");
 
 let randomIndexArray = [];
-let uniqueIndexesInArrayWithFourValuesArray = [];
 let indexOfCorrectFlag = undefined;
-function generateCorrectFlag() {
-    indexOfCorrectFlag = Math.floor((Math.random() * 193 + 1));
-    randomIndexArray.push(indexOfCorrectFlag);
-}
+let loopIteration = 0
 function generateUniqueRandomIndex() {
-    let randomIndex = Math.floor((Math.random() * 193 + 1));
+    let randomIndex = Math.floor((Math.random() * 194));
     while (randomIndexArray.includes(randomIndex)) {
-        randomIndex = Math.floor((Math.random() * 193 + 1));
+        randomIndex = Math.floor((Math.random() * 194));
     }
     randomIndexArray.push(randomIndex);
 }
 
-function getIndexForFlag() {
-    let randomIndex = Math.floor((Math.random() * 4));
-    while (uniqueIndexesInArrayWithFourValuesArray.includes(randomIndex)) {
-        randomIndex = Math.floor((Math.random() * 4));
-    }
-    uniqueIndexesInArrayWithFourValuesArray.push(randomIndex)
-    return randomIndex;
+function generateIndexOfCorrectFlag() {
+    indexOfCorrectFlag = Math.floor(Math.random() * 4)
 }
+
 
 //Logic for generating flags
-generateCorrectFlag()
-for (let i = 0; i < 3; i++) {
-   generateUniqueRandomIndex();
-}
+generateIndexOfCorrectFlag()
 
-images.forEach(image => {
-    let indexChosen = getIndexForFlag()
-    image.src = "./resources/images/128x128/" + flagNames[randomIndexArray[indexChosen]] + ".png";
+images.forEach((image, index) => {
+    generateUniqueRandomIndex()
+    image.src = "./resources/images/128x128/" + flagNames[randomIndexArray[index]] + ".png";
+    console.log(randomIndexArray)
 });
+
 
 const h2 = document.createElement("h2");
 const body = document.querySelector("body")
-h2.textContent = `Choose the flag of ${flagNames[indexOfCorrectFlag]}`;
+h2.textContent = `Choose the flag of ${flagNames[randomIndexArray[indexOfCorrectFlag]]}`;
 body.appendChild(h2)
